@@ -1,47 +1,46 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int main() {
-    // Deklarasi variabel
-    string kandidat[2] = {"Kandidat A", "Kandidat B"};
-    int suara[2] = {0, 0};
     int pilihan;
     char ulang;
+    int kandidatA = 0;
+    int kandidatB = 0;
 
     do {
-        cout << "\n==============================" << endl;
-        cout << "      SISTEM VOTING SEDERHANA " << endl;
-        cout << "==============================" << endl;
-
-        // Menampilkan kandidat
-        cout << "Daftar Kandidat:" << endl;
-        cout << "1. " << kandidat[0] << endl;
-        cout << "2. " << kandidat[1] << endl;
-        cout << "Pilih Kandidat (1-2): ";
+        cout << "=== voting ketua osis ===" << endl;
+        cout << "1. kandidat A" << endl;
+        cout << "2. kandidat B" << endl;
+        cout << "masukan pilihan taerpercaya anda (1/2): ";
         cin >> pilihan;
 
-        // Percabangan
-        if (pilihan == 1) {
-            suara[0]++;
-            cout << "Suara untuk " << kandidat[0] << " berhasil ditambahkan." << endl;
-        } else if (pilihan == 2) {
-            suara[1]++;
-            cout << "Suara untuk " << kandidat[1] << " berhasil ditambahkan." << endl;
-        } else {
-            cout << "Pilihan tidak valid!" << endl;
+        switch (pilihan) {
+            case 1:
+                kandidatA++;
+                 cout << "anda memilih kandidat A" << endl;
+                 break;
+            case 2:
+                kandidatB++;
+                  cout << "anda memilih kandidat B" << endl;
+                  break;
+            default:
+                cout << "pilihan tidak valid. silahkan coba lagi." << endl;
+                break;
         }
-
-        // Perulangan
-        cout << "\nAda pemilih lagi? (y/n): ";
+        cout << "apakah anda ingin melanjutkan voting? (y/n): ";
         cin >> ulang;
-
     } while (ulang == 'y' || ulang == 'Y');
 
-    // Menampilkan hasil voting
-    cout << "\n========== HASIL VOTING ==========" << endl;
-    cout << kandidat[0] << " : " << suara[0] << " suara" << endl;
-    cout << kandidat[1] << " : " << suara[1] << " suara" << endl;
-    cout << "=================================" << endl;
+    cout << "\n==== hasil voting siswa ====" << endl;
+    cout << "kandidat A mendapatkan " << kandidatA << " suara." << endl;
+    cout << "kandidat B mendapatkan " << kandidatB << "suara." << endl;
+    if (kandidatA > kandidatB) {
+        cout << "kandidat A memenangkan pemilhan." << endl;
+    } else if (kandidatB > kandidatA) {
+        cout << "kandidat B memenangkan pemilihan." << endl;
+    } else {
+        cout << "hasil pemilihan imbang." << endl;
 
-    return 0;
+        return 0;
+    }
 }
